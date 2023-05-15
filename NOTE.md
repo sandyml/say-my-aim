@@ -1,1 +1,3 @@
-[](https://www.google.com/url?sa%3Di%26url%3Dhttps%3A%2F%2Fsites.bu.edu%2Fcmcs%2F2017%2F11%2F16%2Faol-instant-messenger%2F%26psig%3DAOvVaw0pyfazdq6AxaXpq2DZZB6-%26ust%3D1684281009841000%26source%3Dimages%26cd%3Dvfe%26ved%3D0CBAQjRxqFwoTCLDCg4nC-P4CFQAAAAAdAAAAABAD)
+1. AIM/AOL Chat 
+ - Check for more inspirations 
+ - Want it to look almost identical with CSS AOL/AIM chat 
