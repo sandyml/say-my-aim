@@ -1,5 +1,10 @@
 class User < ApplicationRecord
  has_secure_password
 
- validate :username, presence: true, uniqueness: true
+ validates :username, presence: true, uniqueness: true
+ 
+ has_many :messages
 end
+
+
+# Tentative: Add Emojis? Add Column 

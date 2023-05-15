@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :messages
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # resources :messages
+  # resources :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post "/signup", to: "users#create"
+
+
 end
