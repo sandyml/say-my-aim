@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Chatroom } from './components/chatroom/Chat';
 import { Navbar } from './components/navigation/Navbar';
 import { Login } from './components/sessions/Login';
 import { Logout } from './components/sessions/Logout';
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/chatroom" element={<Chatroom />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
