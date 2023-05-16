@@ -1,13 +1,23 @@
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Navbar } from './components/navigation/Navbar';
+import { Login } from './components/sessions/Login';
+import { Logout } from './components/sessions/Logout';
+import { Signup } from './components/sessions/Signup';
+import { Home } from './components/static/Home';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Sandra!</h1>
-      <button class="rounded-none shadow-lg p-5 bg-stone-500 hover:bg-stone-600">
-        Send
-      </button>
-    </div>
+    // <div className="App">
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
+      </Routes>
+    </Router>
+    // </div>
   );
 }
 
