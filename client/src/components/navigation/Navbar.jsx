@@ -10,6 +10,9 @@ export const Navbar = () => {
  const dispatch = useDispatch();
 
  const handleLogout = () => {
+  fetch('/logout', {
+    method: 'DELETE',
+  })
   dispatch(logoutUser())
  }
 

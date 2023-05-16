@@ -1,6 +1,7 @@
 const initialState = {
   user: null,
-  loggedIn: false
+  loggedIn: false,
+  messages: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -12,11 +13,12 @@ const usersReducer = (state = initialState, action) => {
         loggedIn: true
       }
     case "LOAD_LOGOUT_USER":
-      return {
-        ...state,
-        user: null,
-        loggedIn: false
-      }
+      return initialState;
+      // return {
+      //   ...state,
+      //   user: null,
+      //   loggedIn: false
+      // }
     default:
       return state;
   }

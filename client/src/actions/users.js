@@ -20,14 +20,21 @@ export const signup = (user) => {
  }
 }
 
+// export const logoutUser = () => {
+//  return dispatch => {
+//   fetch('/logout', {
+//    method: 'DELETE',
+//   })
+//   const action = {
+//    type: "LOAD_LOGOUT_USER"
+//   }
+//   dispatch(action)
+//  }
+// }
+
+// no thunk, no payload, no data 
 export const logoutUser = () => {
- return dispatch => {
-  fetch('/logout', {
-   method: 'DELETE',
-  })
-  const action = {
-   type: "LOAD_LOGOUT_USER"
-  }
-  dispatch(action)
+ return {
+  type: "LOAD_LOGOUT_USER"
  }
 }
