@@ -6,14 +6,17 @@ import { logoutUser } from '../../actions/users';
 export const Navbar = () => {
 
  const { loggedIn, user } = useSelector((state) => state.usersReducer);
+ console.log(user, "user")
 
  const dispatch = useDispatch();
+//  const navigate = useNavigate();
 
  const handleLogout = () => {
   fetch('/logout', {
     method: 'DELETE',
   })
-  dispatch(logoutUser())
+  dispatch(logoutUser());
+  // navigate('/login')
  }
 
 
@@ -36,7 +39,7 @@ export const Navbar = () => {
     </button>
     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
      <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      {loggedIn ? (
+      {user && user.id ? (
        <>
         Welcome, {user.username}! &emsp;&emsp;
        </>)

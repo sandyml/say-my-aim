@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { signup } from '../../actions/users';
 
 export const Signup = () => {
@@ -7,6 +9,7 @@ export const Signup = () => {
  const [password, setPassword] = useState("");
 
  const dispatch = useDispatch();
+ const navigate = useNavigate();
 
  // const [formData, setFormData] = useState({
  //  username: "",
@@ -16,7 +19,7 @@ export const Signup = () => {
  const handleSubmit = (e) => {
   e.preventDefault();
   const user = { username, password }
-  dispatch(signup({ username, password }))
+  dispatch(signup({ username, password }, navigate))
  };
 
 
@@ -67,7 +70,9 @@ export const Signup = () => {
      <div className="flex items-center justify-between">
       <button 
       onClick={handleSubmit}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+      type="button"
+      value="Create account">
        Sign Up
       </button>
       {/* <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" 

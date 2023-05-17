@@ -1,12 +1,11 @@
 const initialState = {
   user: null,
   loggedIn: false,
-  messages: []
+  // messages: []
 }
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case "LOAD_LOGIN_USER":
       return {
         user: action.payload,
