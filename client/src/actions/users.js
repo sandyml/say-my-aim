@@ -1,3 +1,5 @@
+import { setErrors, clearErrors } from './errors';
+
 export const signup = (user, navigate) => {
  return dispatch => {
   fetch('/signup', {
@@ -21,26 +23,60 @@ export const signup = (user, navigate) => {
  }
 }
 
-export const loadLogin = (user, navigate) => {
+// export const loadLogin = (user, navigate) => {
+//  return dispatch => {
+//   fetch('/login', {
+//    method: 'POST',
+//    headers: {
+//     "Accept": "application/json",
+//     "Content-Type": "application/json"
+//    },
+//    body: JSON.stringify(user)
+//   })
+//   .then((resp) => resp.json())
+//   .then((data) => {
+//    console.log(data, "users action")
+//    const action = {
+//     type: "LOAD_LOGIN_USER",
+//     payload: data
+//    }
+//    dispatch(action);
+//    navigate('/chatroom')
+//   })
+//  }
+// }
+
+export const loadLogin = (username, password, navigate) => {
  return dispatch => {
-  fetch('/login', {
-   method: 'POST',
+   // setLoading(true);
+   fetch('/login', {
+     method: 'POST',
    headers: {
     "Accept": "application/json",
     "Content-Type": "application/json"
    },
-   body: JSON.stringify(user)
-  })
-  .then((resp) => resp.json())
-  .then((data) => {
-   console.log(data, "users action")
-   const action = {
-    type: "LOAD_LOGIN_USER",
-    payload: data
-   }
-   dispatch(action);
-   navigate('/chatroom')
-  })
+     body: JSON.stringify({
+       username,
+       password,
+     }),
+   }).then((resp) => {
+     if (resp.ok) {
+       resp.json().then((user) => {
+         const action = {
+           type: "LOAD_LOGIN_USER",
+           payload: user
+         }
+         dispatch(action);
+         dispatch(clearErrors())
+         navigate('/')
+       });
+     } else {
+       resp.json()
+         .then((err) => {
+           dispatch(setErrors(err.errors))
+         })
+     }
+   });
  }
 }
 
