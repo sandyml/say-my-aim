@@ -1,5 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadAllMessages } from '../../actions/messages';
+// import { loadAllMessages } from '../../actions/messages';
 import { ChatForm } from './ChatForm';
 import { Message } from './Message';
 // chatbox / chatroom 
@@ -7,9 +9,15 @@ import { Message } from './Message';
 export const Chatroom = () => {
   const messages = useSelector((state) => state.messagesReducer);
 
+  const dispatch = useDispatch();
+
   const messageCards = messages.map((message) => 
   <Message key={message.id} message={message} />
   );
+
+  useEffect(() => {
+    dispatch(loadAllMessages())
+  }, [dispatch])
 
   return (
     <div>

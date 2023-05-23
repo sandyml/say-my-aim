@@ -1,22 +1,9 @@
-const initialState = [
-  {
-    id: 1, 
-    user: {
-      username: "Sandy"
-    },
-    content: "Hello there!"
-  },
-  {
-    id: 2, 
-    user: {
-      username: "Ted"
-    },
-    content: "Hello how are you?!"
-  },
-]
+const initialState = []
 
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "LOAD_ALL_MESSAGES":
+      return action.payload
     case "LOAD_ADD_MESSAGE":
       return [
         ...state,

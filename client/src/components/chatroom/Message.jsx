@@ -12,9 +12,9 @@ export const Message = ({ message }) => {
  return (
   <div>
    <p className='flex content-end'>
-    <span>
-    {/* <span style={{ color: user.username === message.user.username ? "red" : "blue" }}> */}
-     {user.username}
+    {/* <span> */}
+    <span style={{ color: user.username == message.user.username ? "red" : "blue" }}>
+     {message.user.username}
     </span>&nbsp;
     says: &nbsp;
     {/* {message.id} */}

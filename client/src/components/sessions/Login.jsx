@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+// import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+
 import { loadLogin } from '../../actions/users';
 
 export const Login = () => {
@@ -65,19 +67,21 @@ export const Login = () => {
           </div>
           <div className="mb-6">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password"/>
               Password
-            </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
-              type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-            {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
+              // label={showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+              type={showPassword ? "text" : "password"}
+              />
           </div>
+            <input className='checkbox' onClick={togglePassword} type="checkbox" id="showPassword" />
+            <label className='checkbox' htmlFor="showPassword">&nbsp;Show password</label>
+
           <div className="flex items-center justify-between">
             <button
               onClick={handleSubmit}

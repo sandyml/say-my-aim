@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../../actions/users';
 
+import { TbBrandWechat } from "react-icons/tb";
+
 export const Navbar = () => {
 
  const { loggedIn, user } = useSelector((state) => state.usersReducer);
@@ -24,8 +26,9 @@ export const Navbar = () => {
   <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
    <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="/" className="flex items-center">
-     <img src="https://w7.pngwing.com/pngs/683/766/png-transparent-computer-icons-livechat-online-chat-desktop-others-miscellaneous-angle-text-thumbnail.png" className="h-8 mr-3" alt="Chat Logo" />
-     <span href="/" className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Say My Aim Chat</span>
+      <TbBrandWechat style={{ fontSize: 50, color: 'green' }}/>
+     {/* <img src="https://w7.pngwing.com/pngs/683/766/png-transparent-computer-icons-livechat-online-chat-desktop-others-miscellaneous-angle-text-thumbnail.png" className="h-8 mr-3" alt="Chat Logo" /> */}
+     <span href="/" className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">&emsp;Say My Aim Chat</span>
     </a>
      
      &emsp;

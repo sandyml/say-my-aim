@@ -16,12 +16,13 @@ import { Home } from './components/static/Home';
 import { loadAddMessage } from './actions/messages';
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     dispatch(loadCurrentUser(setLoading));
+    // dispatch(loadAllMessages());
     dispatch(loadAddMessage(setLoading));
   }, [dispatch])
 
