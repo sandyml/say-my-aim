@@ -86,12 +86,11 @@ export const loadCurrentUser = (setLoading) => {
   .then((resp) => resp.json())
   .then((data) => {
    console.log(data, "loadCurrentUser action")
-   if(data.errors) {
-    const action = {
-     type: "LOAD_LOGIN_USER",
-     payload: data
-    }
-    dispatch(action);
+   if(!data.errors) {
+    dispatch({
+      type: "LOAD_LOGIN_USER",
+      payload: data
+     });
    }
    setLoading(false);
   })
