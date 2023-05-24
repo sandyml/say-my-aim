@@ -1,6 +1,9 @@
 class MessagesChannel < ApplicationCable::Channel
+
+  # private DM's maybe future add #{params[:id]}
   def subscribed
-    # stream_from "some_channel"
+    byebug
+    stream_from "MessagesChannel"
   end
 
   def unsubscribed
