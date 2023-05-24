@@ -10,11 +10,10 @@ export const ChatForm = () => {
 
  const handleSubmit = (e) => {
   e.preventDefault();
-  const messageObj = {content: message}
-  dispatch(loadAddMessage(messageObj))  ;  
-  // dispatch(loadAddMessage({  }))    
-  console.log('message sent! clicked');
-  setMessage(""); // clear state after submit 
+  // const messageObj = {content: message}
+  dispatch(loadAddMessage({content: message}))   
+  // console.log('message sent! clicked');
+  setMessage("") // clear state after submit 
  }
 
  return (

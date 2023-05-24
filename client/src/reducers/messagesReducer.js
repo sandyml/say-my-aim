@@ -5,12 +5,9 @@ const messagesReducer = (state = initialState, action) => {
     case "LOAD_ALL_MESSAGES":
       return action.payload
     case "LOAD_ADD_MESSAGE":
-      return [
-        ...state,
-        action.payload
-      ]
+      return [...state, action.payload]
     default:
-      return state
+      return state;
   }
 }
 

@@ -15,6 +15,8 @@ import { Login } from './components/sessions/Login';
 import { Home } from './components/static/Home';
 import { loadAddMessage } from './actions/messages';
 
+const ws = new WebSocket('ws://localhost:3001/cable') 
+
 function App() {
   const [loading, setLoading] = useState(true);
 
