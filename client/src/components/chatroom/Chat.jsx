@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { loadAllMessages } from '../../actions/messages';
+import { NavbarContainer } from '../navigation/NavbarContainer';
 import { ChatForm } from './ChatForm';
 import { Message } from './Message';
 
@@ -26,6 +28,7 @@ export const Chatroom = () => {
     <div className="flex h-screen justify-center items-center flex-col">
       <div className="w-full h-screen bg-[url('https://wallpaperaccess.com/full/7399735.jpg')] bg-cover bg-center">
         <div className="w-full h-full flex justify-center items-center backdrop-brightness-100">
+        <NavbarContainer />
           <center>
             <h1 className='fixed top-0 left-0 right-0'>Say My Aim Chatroom</h1>
             <div className="box-content h-80 w-50 p-1 border-none border-gray-400 bg-gray-200">
