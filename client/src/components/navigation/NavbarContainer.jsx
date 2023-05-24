@@ -24,7 +24,7 @@ export const NavbarContainer = () => {
 
  return (
   <div className='p-10'>
-   <h1 className='fixed top-0 left-0 right-0'>Say My Aim Chatroom</h1>
+   {/* <h1 className='fixed top-0 left-0 right-0'>Say My Aim Chatroom</h1>  */}
    <div className="box-content h-96 w-64 p-1 border-none border-blue-800 bg-blue-700 rounded-sm">
     <div className=" overflow-y-auto h-full w-full bg-amber-100 shadow-lg" >
      <h3 style={{ color: 'white' }}
