@@ -1,8 +1,8 @@
 export const errorsReducer = (state = [], action) => {
   switch(action.type) {
-   case "SET_ERRORS":
+   case "LOAD_SET_ERRORS":
     return action.payload 
-   case "CLEAR_ERRORS": 
+   case "LOAD_CLEAR_ERRORS": 
     return [];
    default:
     return state;

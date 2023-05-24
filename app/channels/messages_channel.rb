@@ -1,8 +1,6 @@
 class MessagesChannel < ApplicationCable::Channel
-
   # private DM's maybe future add #{params[:id]}
   def subscribed
-    # byebug
     stream_from "MessagesChannel"
   end
 

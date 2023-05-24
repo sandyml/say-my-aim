@@ -1,23 +1,20 @@
 import { setErrors, clearErrors } from './errors';
+import { headers } from '../Global';
 
 export const signup = (user, navigate) => {
  return dispatch => {
   fetch('/signup', {
    method: 'POST',
-   headers: {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-   },
+   headers,
    body: JSON.stringify(user)
   })
   .then((resp) => resp.json())
   .then((data) => {
    console.log(data, "users action")
-   const action = {
+   dispatch({
     type: "LOAD_LOGIN_USER",
     payload: data
-   }
-   dispatch(action);
+   });
    navigate('/chatroom')
   })
  }
@@ -27,10 +24,7 @@ export const signup = (user, navigate) => {
 //  return dispatch => {
 //   fetch('/login', {
 //    method: 'POST',
-//    headers: {
-//     "Accept": "application/json",
-//     "Content-Type": "application/json"
-//    },
+//    headers,
 //    body: JSON.stringify(user)
 //   })
 //   .then((resp) => resp.json())
@@ -51,10 +45,7 @@ export const loadLogin = (username, password, navigate) => {
    // setLoading(true);
    fetch('/login', {
      method: 'POST',
-   headers: {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-   },
+   headers,
      body: JSON.stringify({
        username,
        password,

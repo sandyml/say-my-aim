@@ -13,39 +13,36 @@ import { Logout } from './components/sessions/Logout';
 import { Signup } from './components/sessions/Signup';
 import { Login } from './components/sessions/Login';
 import { Home } from './components/static/Home';
-// import { loadAddMessage } from './actions/messages'; // add when dont with ws
+import { ws } from './Global';
 
-const ws = new WebSocket('ws://localhost:3001/cable') 
+// const ws = new WebSocket('ws://localhost:3001/cable') 
 
 function App() {
   const [loading, setLoading] = useState(true);
-
-  const { user } = useSelector((state) => state.usersReducer);
-
   const dispatch = useDispatch(); 
 
   // onupen acts like a useEffect for ws creating connecting with ws 
   // runs automatically (onopen) 
   // ws async (obj) setting to attribute(onopen) to a function 
-   ws.onopen = () => {
+   ws.onopen = () => {    
     console.log('You are connected to the WebSocket Server')
-
     ws.send(
       JSON.stringify({
         command: "subscribe",
         identifier: JSON.stringify({
-          id: user.id,  
+          // id: user.id, 
+          id: 2,
           channel: "MessagesChannel" // coming from channel folder in subscribe section 
         })
       })
     )
-   }
+  }
 
   useEffect(() => {
     dispatch(loadCurrentUser(setLoading));
     // dispatch(loadAllMessages());
     // dispatch(loadAddMessage(setLoading));
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <Router>

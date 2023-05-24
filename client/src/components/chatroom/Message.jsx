@@ -5,7 +5,7 @@ export const Message = ({ message }) => {
   // console.log(message, "message")
   
   const { user } = useSelector((state) => state.usersReducer);
-  // const errors = useSelector((state) => state.errorsReducer);
+  const errors = useSelector((state) => state.errorsReducer);
   // console.log(user, "user")
   // debugger
 
@@ -21,6 +21,21 @@ export const Message = ({ message }) => {
     {message.content}
     </p>
     {/* {errors} */}
+{/* 
+    {errors.length > 0 && (
+          <ul style={{ color: "red" }}>
+            {errors.map((error) => (
+              <li
+                id='errors'
+                component={'li'}
+                fontSize={13}
+                variant='body2'
+                key={error}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        )} */}
   </div>
  )
 }
