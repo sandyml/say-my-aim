@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :user
-  # validates :message, length: { maximum: 500 }
+  # validates :content, length: { maximum: 500 }
   
   # if create successfully => run broadcast_message method
   # after_create_commit do 

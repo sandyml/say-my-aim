@@ -44,6 +44,9 @@ export const Login = () => {
   // }
 
   return (
+    <div className="flex h-screen justify-center items-center flex-col">
+    <div className="w-full h-screen bg-[url('https://wallpaperaccess.com/full/7399735.jpg')] bg-cover bg-center">
+    <div className="w-full h-full flex justify-center items-center backdrop-brightness-100">
     <center>
       <br />
       <br />
@@ -54,7 +57,7 @@ export const Login = () => {
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="username">
-              Username
+              Screen Name
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -118,5 +121,8 @@ export const Login = () => {
         </p>
       </div>
     </center>
+    </div>
+    </div>
+    </div>
   )
 }
