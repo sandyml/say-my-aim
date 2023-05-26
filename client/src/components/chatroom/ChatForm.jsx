@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { loadAddMessage } from '../../actions/messages';
 import { headers, ws } from '../../Global';
 
+import { RiMailSendFill } from "react-icons/ri";
+import { useNavigate } from 'react-router-dom';
 
-export const ChatForm = () => {
-  const [message, setMessage] = useState("")
+export const ChatForm = ({ loading }) => {
+  const [message, setMessage] = useState("");
+  const { loggedIn } = useSelector((state) => state.usersReducer);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!loading && !loggedIn) {
+      navigate('/login')
+    }
+  }, [loading, loggedIn, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +62,8 @@ export const ChatForm = () => {
         <button
           type="submit"
           className=" inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-sm focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
-          Submit
+          <RiMailSendFill className='text-black text-3xl'/>&nbsp;
+          Send
         </button>
       </div>
     </form>

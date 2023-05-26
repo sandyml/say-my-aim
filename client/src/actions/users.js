@@ -1,23 +1,48 @@
 import { setErrors, clearErrors } from './errors';
 import { headers } from '../Global';
 
+// export const signup = (user, navigate) => {
+//  return dispatch => {
+//   fetch('/signup', {
+//    method: 'POST',
+//    headers,
+//    body: JSON.stringify(user)
+//   })
+//   .then((resp) => resp.json())
+//   .then((data) => {
+//    console.log(data, "users action")
+//    dispatch({
+//     type: "LOAD_LOGIN_USER",
+//     payload: data
+//    });
+//    navigate('/chatroom')
+//   })
+//  }
+// }
+
 export const signup = (user, navigate) => {
- return dispatch => {
-  fetch('/signup', {
-   method: 'POST',
-   headers,
-   body: JSON.stringify(user)
-  })
-  .then((resp) => resp.json())
-  .then((data) => {
-   console.log(data, "users action")
-   dispatch({
-    type: "LOAD_LOGIN_USER",
-    payload: data
-   });
-   navigate('/chatroom')
-  })
- }
+  return dispatch => {
+    // setIsLoading(true);
+    fetch('/signup', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(user)
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.errors) {
+          dispatch(setErrors(data.errors))
+        } else {
+          dispatch(clearErrors())
+          const actionSignup = {
+            type: "LOAD_SIGNUP_USER",
+            payload: data
+          }
+          dispatch(clearErrors())
+          navigate('/chatroom')
+        }
+      })
+  }
 }
 
 // export const loadLogin = (user, navigate) => {
@@ -59,7 +84,7 @@ export const loadLogin = (username, password, navigate) => {
          }
          dispatch(action);
          dispatch(clearErrors())
-         navigate('/')
+         navigate('/chatroom')
        });
      } else {
        resp.json()

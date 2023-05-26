@@ -5,6 +5,7 @@ import { loadAllMessages } from '../../actions/messages';
 import { NavbarContainer } from '../navigation/NavbarContainer';
 import { ChatForm } from './ChatForm';
 import { Message } from './Message';
+import { useNavigate } from 'react-router-dom';
 
 // import { BsBatteryFull } from "react-icons/bs";
 
@@ -12,11 +13,19 @@ import { Message } from './Message';
 
 // chatbox / chatroom 
 // add currentUser on the side next to Instant Message
-export const Chatroom = () => {
+export const Chatroom = ({ loading }) => {
   // export const Chatroom = ({ ws }) => {
   const messages = useSelector((state) => state.messagesReducer);
-  const { user } = useSelector((state) => state.usersReducer);
+  const { user, loggedIn } = useSelector((state) => state.usersReducer);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!loading && !loggedIn) {
+      navigate('/login')
+    }
+  }, [loading, loggedIn, navigate]);
 
   const messageCards = messages.map((message) =>
     <Message key={message.id} message={message} />
@@ -53,7 +62,7 @@ export const Chatroom = () => {
                 {messageCards}
               </div>
             </div>
-            <ChatForm />
+            <ChatForm loading={loading} />
           </div>
         </div>
       </div>
