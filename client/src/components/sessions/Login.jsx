@@ -102,6 +102,7 @@ export const Login = () => {
                   </a>
                 </div>
               </form>
+              <div className='bg-white rounded-sm'>
               {errors.length > 0 && (
                 <ul style={{ color: "red" }}>
                   {errors.map((error) => (
@@ -116,6 +117,7 @@ export const Login = () => {
                   ))}
                 </ul>
               )}
+              </div><br/>
               {/* <div>{errors}</div> */}
               <p className="text-center text-black text-xs">
                 &copy;2023 Sandra Yun. All Rights Reserved | Github
