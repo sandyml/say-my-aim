@@ -118,7 +118,6 @@ export const Login = () => {
                 </ul>
               )}
               </div><br/>
-              {/* <div>{errors}</div> */}
               <p className="text-center text-black text-xs">
                 &copy;2023 Sandra Yun. All Rights Reserved | Github
               </p>
